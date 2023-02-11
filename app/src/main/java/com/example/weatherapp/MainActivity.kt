@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.searchCity.setOnTouchListener(object : OnTouchListener {
             val DRAWABLE_RIGHT = 2
+
             @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(v: View?, event: MotionEvent): Boolean {
                 // TODO Auto-generated method stub
@@ -60,7 +61,12 @@ class MainActivity : AppCompatActivity() {
                     if (event.rawX >= binding.searchCity.right - binding.searchCity.compoundDrawables[DRAWABLE_RIGHT].bounds.width()
                     ) {
                         // your action here
-                    viewModel.getCityWeatherInfo(this@MainActivity, binding.searchCity.text.toString())
+                        viewModel.getCityWeatherInfo(
+                            this@MainActivity,
+                            binding.searchCity.text.toString()
+                        )
+                        binding.searchCity.text.clear()
+
                         return true
                     }
                 }
@@ -74,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                 keyEvent.keyCode == KeyEvent.KEYCODE_ENTER
             ) {
                 viewModel.getCityWeatherInfo(this, binding.searchCity.text.toString())
+                binding.searchCity.text.clear()
                 true
             }
             false
@@ -85,14 +92,15 @@ class MainActivity : AppCompatActivity() {
         viewModel.progress.set(false)
         viewModel.currentWeatherData = weatherData
 
-        if(weatherData?.main?.temp!! > 20){
+        if (weatherData?.main?.temp!! > 20) {
             viewModel.sendNotification("It's boiling!")
         }
-        if(weatherData.main?.temp!! < 0){
+        if (weatherData.main?.temp!! < 0) {
             viewModel.sendNotification("It's freezing!")
         }
 
         binding.apply {
+            binding.searchCity.text.clear()
             val currentDate = SimpleDateFormat("dd/MM/yyyy hh:mm").format(Date())
             layoutWeatherBasicInfo.tvCurrentTime.text = currentDate.toString()
             layoutWeatherBasicInfo.tvCityName.text = weatherData.name
@@ -100,9 +108,11 @@ class MainActivity : AppCompatActivity() {
                 round(weatherData.main?.temp!!).toInt().toString()
             layoutWeatherBasicInfo.tvModeType.text = weatherData.weather[0].description
             layoutWeatherBasicInfo.tvTempMax.text =
-                "H: " + round(weatherData.main?.tempMax!!).toInt().toString()+applicationContext.getString(R.string.temp_unit)
+                "H: " + round(weatherData.main?.tempMax!!).toInt()
+                    .toString() + applicationContext.getString(R.string.temp_unit)
             layoutWeatherBasicInfo.tvTempLow.text =
-                "L: " + round(weatherData.main?.tempMin!!).toInt().toString()+applicationContext.getString(R.string.temp_unit)
+                "L: " + round(weatherData.main?.tempMin!!).toInt()
+                    .toString() + applicationContext.getString(R.string.temp_unit)
             layoutWeatherOtherInfo.tvSunrise.text =
                 unixTimestampToTimeString(weatherData.sys?.sunrise!!, weatherData.timezone)
             layoutWeatherOtherInfo.tvSunset.text =

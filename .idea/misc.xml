@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/cursor_color.xml" value="0.127" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/edittextdesign.xml" value="0.1965" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.102" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/ic_location.xml" value="0.1965" />
@@ -10,7 +11,7 @@
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/ic_sunset.xml" value="0.1" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/ic_uvindex.xml" value="0.1" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/drawable/weather_info_background.xml" value="0.1" />
-        <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/layout/layout_sunrise_sunset.xml" value="0.20416666666666666" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/layout/layout_weather_basic_info.xml" value="0.21839080459770116" />
         <entry key="..\:/Mamta_JOB/WeatherAppDemo/WeatherApp/app/src/main/res/layout/layout_weather_other_info.xml" value="0.12" />

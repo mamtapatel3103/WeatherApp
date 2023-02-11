@@ -32,17 +32,20 @@
         <EditText
             android:id="@+id/searchCity"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittextdesign"
+            android:drawablePadding="@dimen/_8sdp"
             android:drawableEnd="@drawable/search_ic"
             android:hint="@string/city_name_hint"
             android:imeOptions="actionDone"
-            android:inputType="textAutoCorrect"
+            android:singleLine="true"
+            android:inputType="textAutoCorrect|textCapWords|textCapSentences"
             android:padding="@dimen/_4sdp"
             android:gravity="center_vertical"
             android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:textColorHint="#78909C"
-            android:textSize="20sp"></EditText>
+            android:textSize="20sp" />
 
         <include
             android:id="@+id/layout_weather_basic_info"
