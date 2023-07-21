@@ -10,10 +10,10 @@
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@drawable/background_"
         android:orientation="vertical"
         android:padding="16dp"
@@ -24,27 +24,27 @@
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressTint="@color/black"
-            android:layout_marginBottom="8dp"
             android:layout_centerInParent="true"
-            android:visibility="@{viewModel.progress ? View.VISIBLE : View.GONE}"/>
+            android:layout_marginBottom="8dp"
+            android:progressTint="@color/black"
+            android:visibility="@{viewModel.progress ? View.VISIBLE : View.GONE}" />
 
         <EditText
             android:id="@+id/searchCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittextdesign"
-            android:drawablePadding="@dimen/_8sdp"
             android:drawableEnd="@drawable/search_ic"
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="center_vertical"
             android:hint="@string/city_name_hint"
             android:imeOptions="actionDone"
-            android:singleLine="true"
             android:inputType="textAutoCorrect|textCapWords|textCapSentences"
             android:padding="@dimen/_4sdp"
-            android:gravity="center_vertical"
+            android:singleLine="true"
             android:textColor="@color/black"
-            android:textCursorDrawable="@drawable/cursor_color"
             android:textColorHint="#78909C"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:textSize="20sp" />
 
         <include
@@ -54,16 +54,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/searchCity"
             android:visibility="@{viewModel.progress ? View.GONE : View.VISIBLE}"
-            app:viewModel="@{viewModel}"/>
+            app:viewModel="@{viewModel}" />
 
         <include
-            layout="@layout/layout_weather_other_info"
             android:id="@+id/layout_weather_other_info"
+            layout="@layout/layout_weather_other_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_weather_basic_info"
-            android:visibility="@{viewModel.progress ? View.GONE : View.VISIBLE}"
-            android:layout_marginTop="@dimen/margin_medium" />
+            android:layout_marginTop="@dimen/margin_medium"
+            android:visibility="@{viewModel.progress ? View.GONE : View.VISIBLE}" />
 
     </RelativeLayout>
 </layout>

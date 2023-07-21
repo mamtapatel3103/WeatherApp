@@ -24,7 +24,7 @@ import com.google.gson.Gson
 
 class WeatherInfoViewModel : ViewModel(), Observable {
 
-    private lateinit var contextParent: Activity
+    lateinit var contextParent: Activity
     val weatherInfoLiveData = MutableLiveData<WeatherData>()
     var currentWeatherData: WeatherData? = null
     val progress = ObservableBoolean(false)
@@ -59,7 +59,7 @@ class WeatherInfoViewModel : ViewModel(), Observable {
 
     }
 
-    private fun getcurrentWeatherInfo(weatherAPI: String) {
+    fun getcurrentWeatherInfo(weatherAPI: String) {
         Log.d("ASDFGH", " $weatherAPI")
         val objectRequest = object : JsonObjectRequest(
             Method.GET,
@@ -105,7 +105,6 @@ class WeatherInfoViewModel : ViewModel(), Observable {
                 .setContentTitle(weatherCondition) //set title of notification
                 .setChannelId(channelId)
                 .setContentIntent(pendingIntent)
-                .setPriority(Notification.PRIORITY_HIGH)
 
 
         } else {
@@ -115,7 +114,6 @@ class WeatherInfoViewModel : ViewModel(), Observable {
                 .setContentTitle(weatherCondition) //set title of notification
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
-                .setPriority(Notification.PRIORITY_HIGH)
 
         }
         notificationManager?.notify(1234, builder.build())

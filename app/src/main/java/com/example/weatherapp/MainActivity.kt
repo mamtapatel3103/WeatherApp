@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private val LOCATION_REQUEST_CODE = 101
     private lateinit var fusedLocationProvider: FusedLocationProviderClient
-    private lateinit var currentLocation: Location
+    private lateinit var location1: Location
     private lateinit var viewModel: WeatherInfoViewModel
     private lateinit var binding: ActivityMainBinding
 
@@ -144,8 +144,8 @@ class MainActivity : AppCompatActivity() {
                     fusedLocationProvider = LocationServices.getFusedLocationProviderClient(this)
                     fusedLocationProvider.lastLocation.addOnSuccessListener(this) { location ->
                         if (location != null) {
-                            currentLocation = location
-                            viewModel.init(this, currentLocation)
+                            location1 = location
+                            viewModel.init(this, location1)
                         }
                     }
                 }
@@ -200,7 +200,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == LOCATION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(
-                    this@MainActivity, "Permission Granted",
+                    this@MainActivity, "Permisdeersion Granted",
                     Toast.LENGTH_LONG
                 ).show()
                 getCurrentLocation()
